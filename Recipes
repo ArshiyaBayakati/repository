@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin :0px;
+            }
+            #div{
+                text-align: center;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h2>Recipes Table</h2>
+        <table border="2">
+            <thead>
+            <tr>
+                <th>Recipe Name</th>
+                <th>Prep Time</th>
+                <th>Cook Time</th>
+                <th>Calories</th>
+                <th>Rating</th>
+            </tr>
+            </thead>
+            <tbody id="tb">
+
+            </tbody>           
+            
+        </table>
+        <button onclick="prev()">Prev</button>
+        <button onclick="next()">next</button>
+        <script>
+            
+            function getRecipes(){
+                fetch("https://dummyjson.com/recipes")
+                .then( function( res)
+                {
+                    console.log(res)
+                    return res.json()
+                })
+                .then(function(data)
+                {  
+                    console.log(data.recipes);
+                    genTab(data.recipes);
+                })
+                
+            }
+            function uidata(data){
+                forEach(function(){
+                    var ro=`
+                })
+            }
+
+            function genTab(){
+                var r=document.createElement("div")
+                r.id="div"
+
+                var n= document.createElement("h4")
+                n.innerText=item.name
+                r.appendChild("n")
+
+                var ptm= document.createElement("h4")
+                ptm.innerText=item.prepTimeMinutes
+                r.appendChild("ptm")
+
+                var ctm= document.createElement("h4")
+                ctm.innerText=item.cookTimeMinutes
+                r.appendChild("ctm")
+
+                var cps= document.createElement("h4")
+                cps.innerText=item.caloriesPerServing
+                r.appendChild("cps")
+
+                var ri= document.createElement("h4")
+                ri.innerText=item.rating
+                r.appendChild("ri")
+                
+                document.body.appendChild(div)
+
+            }
+            genTab()
+
+            
+        </script>
+    </body>
+</html>
